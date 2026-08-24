@@ -1,0 +1,159 @@
+<!DOcTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VAPT Security Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>🛡️ VAPT Security Dashboard</h1>
+            <p>Vulnerability Assessment and Security Audit using Kali Linux</p>
+        </header>
+
+
+        <!-- Scan Section -->
+        <section class="scan-card">
+
+            <h2>Target Scanner</h2>
+
+            <form method="POST">
+
+                <label for="target">Enter Authorized Target IP Address or Hostname</label>
+
+                <input
+                    type="text"
+                    id="target"
+                    name="target"
+                    placeholder="Example: 127.0.0.1"
+                    value="{{ target }}"
+                    required
+                >
+
+                <button type="submit">
+                    Start Security Scan
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Scan Results -->
+        {% if scan_result %}
+
+        <section class="result-card">
+
+            <h2>Scan Results</h2>
+
+            <div class="target-info">
+                <strong>Target:</strong> {{ target }}
+            </div>
+
+            <pre>{{ scan_result }}</pre>
+
+        </section>
+
+        {% endif %}
+
+
+        <!-- Project Information -->
+        <section class="info-section">
+
+            <div class="info-card">
+                <h3>🔍 Asset Discovery</h3>
+                <p>Identify authorized hosts and network assets.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🔌 Port Scanning</h3>
+                <p>Identify open ports and exposed network services.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>⚠️ Risk Analysis</h3>
+                <p>Review scan findings and assess security risk.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📋 Security Audit</h3>
+                <p>Generate recommendations for improving security.</p>
+            </div>
+
+        </section>
+<!-- Scan History -->
+
+{% if scans %}
+
+<section class="result-card">
+
+    <h2>Scan History</h2>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Target</th>
+                    <th>Risk Level</th>
+                    <th>Open Ports</th>
+                    <th>Scan Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for scan in scans %}
+
+                <tr>
+
+                    <td>{{ scan.id }}</td>
+
+                    <td>{{ scan.target }}</td>
+
+                    <td>
+                        <span class="risk-{{ scan.risk_level|lower }}">
+                            {{ scan.risk_level }}
+                        </span>
+                    </td>
+
+                    <td>{{ scan.port_count }}</td>
+
+                    <td>{{ scan.created_at }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+        <!-- Footer -->
+        <footer>
+            <p>Vulnerability Assessment and Security Audit Project</p>
+            <p>Use only on systems you own or have permission to test.</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

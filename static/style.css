@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0f1a;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+/* Header */
+
+header {
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+    background: #111827;
+    border: 1px solid #00ff88;
+    border-radius: 12px;
+}
+
+header h1 {
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #a0aec0;
+}
+
+/* Scan Card */
+
+.scan-card {
+    background: #111827;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #263244;
+    margin-bottom: 30px;
+}
+
+.scan-card h2 {
+    color: #00ff88;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #cbd5e1;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    background: #020617;
+    border: 1px solid #334155;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00ff88;
+}
+
+/* Button */
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #00ff88;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00cc6a;
+}
+
+/* Results */
+
+.result-card {
+    background: #111827;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #263244;
+    margin-bottom: 30px;
+}
+
+.result-card h2 {
+    color: #00ff88;
+    margin-bottom: 15px;
+}
+
+.target-info {
+    padding: 12px;
+    background: #020617;
+    border-left: 4px solid #00ff88;
+    margin-bottom: 15px;
+}
+
+pre {
+    background: #020617;
+    color: #00ff88;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+/* Information Cards */
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    background: #111827;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #263244;
+}
+
+.info-card h3 {
+    color: #00ff88;
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    color: #a0aec0;
+    line-height: 1.6;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 25px;
+    color: #64748b;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
+
+/* Risk Analysis */
+
+.risk-box {
+    background: #020617;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.risk-box h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.risk-box ul {
+    padding-left: 20px;
+}
+
+.risk-box li {
+    margin-bottom: 10px;
+    color: #cbd5e1;
+}
+
+.risk-low {
+    color: #00ff88;
+}
+
+.risk-medium {
+    color: #ffcc00;
+}
+
+.risk-high {
+    color: #ff4444;
+}
